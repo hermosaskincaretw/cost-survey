@@ -48,6 +48,11 @@ input,select{font-family:inherit;}
 .brand-text h1{font-family:'Noto Serif TC',serif;font-size:25px;font-weight:900;letter-spacing:0.5px;}
 .brand-text span{font-size:12px;color:var(--gray);}
 .brand-actions{display:flex;gap:8px;position:absolute;top:16px;right:20px;}
+@media(max-width:560px){
+  .topbar-inner{padding:14px 16px;}
+  .brand-actions{position:static;justify-content:flex-end;margin-bottom:10px;}
+  .brand-text h1{font-size:20px;}
+}
 .icon-btn{
   width:34px;height:34px;border-radius:10px;background:var(--cream);
   display:flex;align-items:center;justify-content:center;color:var(--medium);
@@ -184,8 +189,8 @@ footer.tip{
 <div class="topbar">
   <div class="topbar-inner">
     <div class="brand-actions">
-        <button class="icon-btn" id="btnExport" title="匯出備份">⭳</button>
-        <button class="icon-btn" id="btnImport" title="匯入備份">⭱</button>
+        <button class="icon-btn" id="btnExport" title="匯出備份">📤</button>
+        <button class="icon-btn" id="btnImport" title="匯入備份">📥</button>
         <input type="file" id="fileImport" class="file-input" accept="application/json">
     </div>
     <div class="brand">
@@ -202,7 +207,7 @@ footer.tip{
 <div id="app">
   <main id="main"></main>
   <footer class="tip">
-    資料只會儲存在這台裝置的瀏覽器裡，換裝置前記得先按右上角「⭳」匯出備份。
+    資料只會儲存在這台裝置的瀏覽器裡，換裝置前記得先按右上角「📤」匯出備份。
     <div style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(55,53,47,0.08)">
       <div style="display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap">
         <a href="https://www.instagram.com/adela.skincare/" target="_blank" rel="noopener" style="color:var(--pink);font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:6px">
@@ -298,8 +303,10 @@ function renderList(){
 
   let html = `
   <div class="hero">
-    <h2>每一堂課，到底用掉多少產品和耗材？</h2>
-    <p>把化妝棉、卸妝／潔顏產品、保養品、可重複使用用品的採購金額和用量都填進去，就能算出這堂課真正的變動成本，再把數字填回「美業課程定價試算工具」的「每堂變動成本」欄位。</p>
+    <span style="display:inline-block;background:#fff;color:var(--pink);font-weight:700;font-size:12px;padding:4px 12px;border-radius:999px;margin-bottom:10px;box-shadow:var(--shadow)">給剛踏入美業的你</span>
+    <h2>是不是也只能「參考」別人的定價？</h2>
+    <p>學完技術、終於自己創業了，卻不知道服務價格要怎麼訂，只好偷偷參考同行的價目表——但你的<b style="color:var(--pink)">房租、耗材、人力成本，跟別人根本不一樣</b>，這樣訂出來的價格，真的能讓你賺錢嗎？</p>
+    <p style="margin-top:10px">從這堂課實際會用到的產品、耗材開始，一項一項列出來，算出真正屬於你的變動成本，才是合理定價的第一步。</p>
   </div>
 
   <div style="display:flex;align-items:center;justify-content:center;gap:9px;background:linear-gradient(135deg,var(--light-pink),var(--light-blue));border-radius:999px;padding:11px 20px;margin-top:16px;box-shadow:var(--shadow);text-align:center">
